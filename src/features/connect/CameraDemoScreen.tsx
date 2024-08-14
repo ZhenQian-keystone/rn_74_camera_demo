@@ -3,9 +3,11 @@
 import {Button, Text, View} from 'react-native';
 import CameraTestView from '../../components/CameraTestView';
 import {useNavigation} from '@react-navigation/native';
+import {useAppStorage} from '../../storage/AppStorageProvider';
 
 function CameraDemoScreen() {
   const navigation = useNavigation();
+  const {data} = useAppStorage();
   return (
     <View>
       <Text>Camera Demo Screen</Text>
@@ -17,6 +19,14 @@ function CameraDemoScreen() {
       </View>
       {/* back button to back up */}
       <Button title="Back" onPress={() => navigation.goBack()} />
+
+      {/* show context */}
+      <Text>{data.length}</Text>
+      {data.map(item => (
+        <Text key={item.id}>
+          {item.id} {item.name} {item.age}
+        </Text>
+      ))}
     </View>
   );
 }
