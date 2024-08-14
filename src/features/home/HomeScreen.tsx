@@ -6,7 +6,7 @@ import {useState} from 'react';
 
 function HomeScreen() {
   const navigation = useNavigation();
-  const {data, addData} = useAppStorage();
+  const {data, addData, userName, password} = useAppStorage();
 
   const [id, setId] = useState(3);
   const clickAddData = () => {
@@ -36,6 +36,10 @@ function HomeScreen() {
         </Text>
       ))}
       <Button title="Add Data" onPress={clickAddData} />
+
+      {/* show userName and password */}
+      <Text>UserName from secure storage: {userName}</Text>
+      <Text>Password from secure storage: {password}</Text>
     </View>
   );
 }

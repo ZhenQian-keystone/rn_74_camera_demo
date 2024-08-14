@@ -7,7 +7,7 @@ import {useAppStorage} from '../../storage/AppStorageProvider';
 
 function CameraDemoScreen() {
   const navigation = useNavigation();
-  const {data} = useAppStorage();
+  const {data, storeUserName, storePassword,getUserName,getPassword,userName,password} = useAppStorage();
   return (
     <View>
       <Text>Camera Demo Screen</Text>
@@ -27,6 +27,17 @@ function CameraDemoScreen() {
           {item.id} {item.name} {item.age}
         </Text>
       ))}
+
+      {/* store userName to secure storage */}
+      
+      <Button title="Store User Name" onPress={() => storeUserName('John'+Math.random())} />
+      <Button title ="Store Password" onPress={() => storePassword('Password'+Math.random())} />
+      <Button title="Get User Name" onPress={()=>getUserName()} />
+      <Button title="Get Password" onPress={() => getPassword()} />
+
+        {/* show userName and password */}
+      <Text>UserName from secure storage: {userName}</Text>
+      <Text>Password from secure storage: {password}</Text>
     </View>
   );
 }

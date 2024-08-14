@@ -1,6 +1,9 @@
 /* eslint-disable react/react-in-jsx-scope */
 import {createContext, ReactNode, useContext, useState} from 'react';
 
+
+import {storeSecureItem,getSecureItem} from './secureStorage';
+
 interface DataExample {
   id: string;
   name: string;
@@ -9,12 +12,49 @@ interface DataExample {
 
 const useAppStorageHook = () => {
   const [data, setData] = useState<DataExample[]>([]);
+  
+  const [userName, setUserName] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+
+  // store userName to secure storage
+  const storeUserName = async (userName: string) => {
+    await storeSecureItem("username", userName);
+  };
+
+  const getUserName = async () => {
+    const userName = await getSecureItem("username");
+    if (userName !== null) {
+      setUserName(userName);
+    }
+  };
+
+  const storePassword = async (password: string) => {
+    await storeSecureItem("password", password);
+  };
+
+  const getPassword = async () => {
+    const password = await getSecureItem("password");
+    if (password !== null) {
+      setPassword(password);
+    }
+  };
+
+  
+
+
+
   const addData = (eg_data: DataExample) => {
     setData([...data, eg_data]);
   };
   return {
     data,
     addData,
+    userName,
+    password,
+    storeUserName,
+    getUserName,
+    storePassword,
+    getPassword,
   };
 };
 
@@ -27,6 +67,12 @@ const initialState = {
     },
   ] as DataExample[],
   addData: async () => undefined,
+  userName: '',
+  password: '',
+  storeUserName: async () => undefined,
+  getUserName: async () => undefined,
+  storePassword: async () => undefined,
+  getPassword: async () => undefined,
 };
 
 const AppStorageContext =
