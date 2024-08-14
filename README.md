@@ -99,3 +99,10 @@ android emulator back camera:
 
 android emulator front camera:
 ![img](./img/front_ca.png)
+
+
+## 0x5. Build Release
+```
+// build android release
+npm run build:android:release
+```
