@@ -86,8 +86,14 @@ iOS:
 
 ```
 
+## 0x3. Reference 
 
-## 0x3. Integration Results
+V4 will support old arch (and new arch with the compat layer), V5 then only new arch.
+
+https://github.com/mrousavy/react-native-vision-camera/issues/2614
+
+
+## 0x4. Integration Results
 android emulator back camera:
 ![img](./img/back_ca.png)
 
