@@ -6,6 +6,7 @@ import {useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {useLanguageStorage} from '../../storage/LanguageProvider';
 import {useAppVersion, useDeviceId} from '../../hooks/useDevice';
+import {useColors, useTextVariants} from '../../theme/themeHooks';
 
 function HomeScreen() {
   const navigation = useNavigation();
@@ -13,6 +14,8 @@ function HomeScreen() {
   const {t} = useTranslation();
   const [id, setId] = useState(3);
   const {language, changeLanguage} = useLanguageStorage();
+  const textVariants = useTextVariants();
+  const colors = useColors();
   const clickAddData = () => {
     setId(id + 1);
     addData({
@@ -61,6 +64,17 @@ function HomeScreen() {
       {/* show device info */}
       <Text>app version: {useAppVersion()}</Text>
       <Text>device id: {useDeviceId()}</Text>
+
+      {/* 字体样式 */}
+      <Text
+        style={{
+          fontFamily: textVariants.h0.fontFamily,
+          color: colors.primaryText,
+        }}>
+        "Hello World"
+      </Text>
+      {/* error color */}
+      <Text style={{color: colors.error}}>Error color</Text>
     </View>
   );
 }
