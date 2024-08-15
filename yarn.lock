@@ -10898,6 +10898,7 @@ __metadata:
     react-test-renderer: 18.2.0
     tinycolor2: ^1.6.0
     typescript: 5.0.4
+    use-debounce: ^10.0.2
   languageName: unknown
   linkType: soft
 
@@ -12253,6 +12254,15 @@ __metadata:
   version: 4.0.0
   resolution: "url-join@npm:4.0.0"
   checksum: d2ac05f8ac276edbcd2b234745415abe27ef6b0c18c4d7a8e7f88fbafa1e9470912392b09391fb47f097f470d4c8b93bf2219b5638286852b2bf65d693e207ee
+  languageName: node
+  linkType: hard
+
+"use-debounce@npm:^10.0.2":
+  version: 10.0.2
+  resolution: "use-debounce@npm:10.0.2"
+  peerDependencies:
+    react: ">=16.8.0"
+  checksum: 0b036292686c13b38e1b0f10d8d207e755a16d20d21acc41776696f88f83cea77f58d32923546f03ff252d3ebb12078d1d205b67506685608f77ea45e55a2928
   languageName: node
   linkType: hard
 

@@ -5,17 +5,25 @@ import {
   createStackNavigator,
 } from '@react-navigation/stack';
 import TabBarNavigator from './TabBarNavigator';
+import OnboardingNavigator from '../features/onboarding/OnboardingNavigator';
 const screenNameShowOptions = {headerShown: false} as StackNavigationOptions;
+
 const RootNavigator = () => {
-  let rootStack = createStackNavigator();
+  let RootStack = createStackNavigator();
   return (
-    <rootStack.Navigator screenOptions={screenNameShowOptions}>
-      <rootStack.Screen
+    <RootStack.Navigator screenOptions={screenNameShowOptions}>
+      <RootStack.Screen
+        key="OnboardingNavigator"
+        name="OnboardingNavigator"
+        component={OnboardingNavigator}
+        options={screenNameShowOptions}
+      />
+      <RootStack.Screen
         name="BottomTabBarNav"
         component={TabBarNavigator}
         options={screenNameShowOptions}
       />
-    </rootStack.Navigator>
+    </RootStack.Navigator>
   );
 };
 
