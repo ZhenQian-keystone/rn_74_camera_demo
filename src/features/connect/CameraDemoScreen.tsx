@@ -1,47 +1,61 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/react-in-jsx-scope */
-import { Button, Text, View } from 'react-native';
+import {Button, Text, View} from 'react-native';
 import CameraTestView from '../../components/CameraTestView';
-import { useNavigation } from '@react-navigation/native';
-import { useAppStorage } from '../../storage/AppStorageProvider';
-import { useTranslation } from 'react-i18next';
+import {useNavigation} from '@react-navigation/native';
+import {useAppStorage} from '../../storage/AppStorageProvider';
+import {useTranslation} from 'react-i18next';
 
 function CameraDemoScreen() {
-    const navigation = useNavigation();
-    const { t } = useTranslation();
-    const { data, storeUserName, storePassword, getUserName, getPassword, userName, password } = useAppStorage();
-    return (
-        <View>
-            <Text> {t('cameraDemoScreen.title')}</Text>
-            <View
-                style={{
-                    height: 300,
-                }}>
-                <CameraTestView />
-            </View>
-            {/* back button to back up */}
-            <Button title="Back" onPress={() => navigation.goBack()} />
+  const navigation = useNavigation();
+  const {t} = useTranslation();
+  const {
+    data,
+    storeUserName,
+    storePassword,
+    getUserName,
+    getPassword,
+    userName,
+    password,
+  } = useAppStorage();
+  return (
+    <View>
+      <Text> {t('cameraDemoScreen.title')}</Text>
+      <View
+        style={{
+          height: 300,
+        }}>
+        <CameraTestView />
+      </View>
+      {/* back button to back up */}
+      <Button title="Back" onPress={() => navigation.goBack()} />
 
-            {/* show context */}
-            <Text>{data.length}</Text>
-            {data.map(item => (
-                <Text key={item.id}>
-                    {item.id} {item.name} {item.age}
-                </Text>
-            ))}
+      {/* show context */}
+      <Text>{data.length}</Text>
+      {data.map(item => (
+        <Text key={item.id}>
+          {item.id} {item.name} {item.age}
+        </Text>
+      ))}
 
-            {/* store userName to secure storage */}
+      {/* store userName to secure storage */}
 
-            <Button title="Store User Name" onPress={() => storeUserName('John' + Math.random())} />
-            <Button title="Store Password" onPress={() => storePassword('Password' + Math.random())} />
-            <Button title="Get User Name" onPress={() => getUserName()} />
-            <Button title="Get Password" onPress={() => getPassword()} />
+      <Button
+        title="Store User Name"
+        onPress={() => storeUserName('John' + Math.random())}
+      />
+      <Button
+        title="Store Password"
+        onPress={() => storePassword('Password' + Math.random())}
+      />
+      <Button title="Get User Name" onPress={() => getUserName()} />
+      <Button title="Get Password" onPress={() => getPassword()} />
 
-            {/* show userName and password */}
-            <Text>UserName from secure storage: {userName}</Text>
-            <Text>Password from secure storage: {password}</Text>
-        </View>
-    );
+      {/* show userName and password */}
+      <Text>UserName from secure storage: {userName}</Text>
+      <Text>Password from secure storage: {password}</Text>
+    </View>
+  );
 }
 
 export default CameraDemoScreen;

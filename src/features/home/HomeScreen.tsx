@@ -9,6 +9,7 @@ import {useAppVersion, useDeviceId} from '../../hooks/useDevice';
 import {useColors, useTextVariants} from '../../theme/themeHooks';
 import {BottomSheetTestRef} from '../../components/BottomSheetTest';
 import BottomSheetSelector from '../../components/BottomSheetTest';
+import Buy from '../../assets/images/buy.svg';
 function HomeScreen() {
   const navigation = useNavigation();
   const {data, addData, userName, password} = useAppStorage();
@@ -84,11 +85,17 @@ function HomeScreen() {
         "Hello World"
       </Text>
       {/* error color */}
-      <Text style={{color: colors.error}}>Error color</Text>
-      {/* bottom sheet test */}
+      <Text style={{color: colors.error}}>错误颜色</Text>
+      {/* 底部弹出框测试 */}
       <BottomSheetSelector ref={bottomSheetRef} />
-      <Button title="Bottom Sheet Test" onPress={showBottomSheet} />
-      {/* bottom sheet test */}
+      <Button title="底部弹出框测试" onPress={showBottomSheet} />
+
+      {/* 图片画廊 */}
+      <Button
+        title="图片画廊"
+        onPress={() => navigation.navigate('SVG' as never)}
+      />
+      <Buy width={100} height={100} />
     </View>
   );
 }
