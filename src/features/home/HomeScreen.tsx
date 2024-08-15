@@ -5,6 +5,7 @@ import {useAppStorage} from '../../storage/AppStorageProvider';
 import {useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {useLanguageStorage} from '../../storage/LanguageProvider';
+import {useAppVersion, useDeviceId} from '../../hooks/useDevice';
 
 function HomeScreen() {
   const navigation = useNavigation();
@@ -56,6 +57,10 @@ function HomeScreen() {
           language === 'zh' ? changeLanguage('en') : changeLanguage('zh');
         }}
       />
+
+      {/* show device info */}
+      <Text>app version: {useAppVersion()}</Text>
+      <Text>device id: {useDeviceId()}</Text>
     </View>
   );
 }
