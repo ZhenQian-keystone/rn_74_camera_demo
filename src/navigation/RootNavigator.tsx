@@ -6,10 +6,11 @@ import {
 } from '@react-navigation/stack';
 import TabBarNavigator from './TabBarNavigator';
 import OnboardingNavigator from '../features/onboarding/OnboardingNavigator';
+import {RootStackParamList} from './rootTypes';
 const screenNameShowOptions = {headerShown: false} as StackNavigationOptions;
 
 const RootNavigator = () => {
-  let RootStack = createStackNavigator();
+  let RootStack = createStackNavigator<RootStackParamList>();
   return (
     <RootStack.Navigator screenOptions={screenNameShowOptions}>
       <RootStack.Screen
