@@ -2,12 +2,13 @@
 import {useNavigation} from '@react-navigation/native';
 import {Button, Text, View} from 'react-native';
 import {useAppStorage} from '../../storage/AppStorageProvider';
-import {useState} from 'react';
+import {useCallback, useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {useLanguageStorage} from '../../storage/LanguageProvider';
 import {useAppVersion, useDeviceId} from '../../hooks/useDevice';
 import {useColors, useTextVariants} from '../../theme/themeHooks';
-
+import {BottomSheetTestRef} from '../../components/BottomSheetTest';
+import BottomSheetSelector from '../../components/BottomSheetTest';
 function HomeScreen() {
   const navigation = useNavigation();
   const {data, addData, userName, password} = useAppStorage();
@@ -28,6 +29,15 @@ function HomeScreen() {
   console.log('======', data);
   console.log('language', language);
 
+  const bottomSheetRef = useRef<BottomSheetTestRef>(null);
+
+  const showBottomSheet = useCallback(() => {
+    if (!bottomSheetRef?.current) {
+      console.log('bottom sheet ref is null');
+      return;
+    }
+    bottomSheetRef.current?.show();
+  }, []);
   return (
     // eslint-disable-next-line react-native/no-inline-styles
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
@@ -75,6 +85,10 @@ function HomeScreen() {
       </Text>
       {/* error color */}
       <Text style={{color: colors.error}}>Error color</Text>
+      {/* bottom sheet test */}
+      <BottomSheetSelector ref={bottomSheetRef} />
+      <Button title="Bottom Sheet Test" onPress={showBottomSheet} />
+      {/* bottom sheet test */}
     </View>
   );
 }
