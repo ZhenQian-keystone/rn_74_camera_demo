@@ -8,6 +8,9 @@ export default {
     title: 'Camera Demo Screen',
   },
   accountSetup: {
+    title: 'Create Account',
+    subtitle1: 'Create a new account to get started',
+    subtitle2: 'You have reached the account limit',
     createImport: {
       title: 'Create or Import Account',
       import: 'Import Account',

@@ -11,14 +11,17 @@ import BackgroundFill from '../../components/BackgroundFill';
 import TouchableOpacityBox from '../../components/TouchableOpacityBox';
 import FinePrint from '../../components/FinePrint';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {useNavigation} from '@react-navigation/native';
+import {OnboardingNavigationProp} from './onboardingTypes';
 const CreateImportAccountScreen = () => {
   const {t} = useTranslation();
   const colors = useColors();
   const {bottom} = useSafeAreaInsets();
+  const navigation = useNavigation<OnboardingNavigationProp>();
   const createAccount = useCallback(() => {
     console.log('createAccount');
-    // navigation.navigate('CreateAccount');
-  }, []);
+    navigation.navigate('CreateAccount');
+  }, [navigation]);
 
   const importAccount = useCallback(() => {
     console.log('importAccount');
