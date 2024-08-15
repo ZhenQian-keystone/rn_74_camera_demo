@@ -7,11 +7,15 @@ import AppStorageProvider from './src/storage/AppStorageProvider';
 import LanguageProvider from './src/storage/LanguageProvider';
 import './src/utils/i18n';
 import {ThemeProvider} from '@shopify/restyle';
-import {theme} from './src/theme/theme';
+import {darkThemeColors, theme} from './src/theme/theme';
 
 const renderApp = () => {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider
+      theme={{
+        ...theme,
+        colors: darkThemeColors,
+      }}>
       <LanguageProvider>
         <AppStorageProvider>
           <App />
