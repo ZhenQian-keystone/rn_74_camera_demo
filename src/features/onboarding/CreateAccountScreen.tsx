@@ -9,10 +9,12 @@ import Box from '../../components/Box';
 import SafeAreaBox from '../../components/SafeAreaBox';
 import BackgroundFill from '../../components/BackgroundFill';
 import TouchableOpacityBox from '../../components/TouchableOpacityBox';
+import FinePrint from '../../components/FinePrint';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 const CreateImportAccountScreen = () => {
   const {t} = useTranslation();
   const colors = useColors();
-
+  const {bottom} = useSafeAreaInsets();
   const createAccount = useCallback(() => {
     console.log('createAccount');
     // navigation.navigate('CreateAccount');
@@ -65,6 +67,17 @@ const CreateImportAccountScreen = () => {
           </Box>
         </TouchableOpacityBox>
       </Box>
+
+      {/* 底部条款 */}
+      <FinePrint
+        position="absolute"
+        justifyContent="center"
+        paddingBottom="l"
+        paddingHorizontal="xxl"
+        bottom={bottom}
+        left={0}
+        right={0}
+      />
     </SafeAreaBox>
   );
 };

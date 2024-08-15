@@ -350,6 +350,12 @@ export const theme = createTheme({
 
     h4Medium: {...textVariants.h4, ...textVariants.medium},
     h4Bold: {...textVariants.h4, ...textVariants.bold},
+
+    defaults: {
+      fontFamily: Font.regular,
+      fontSize: 16,
+      color: 'blueBright500',
+    },
   },
   inputVariants: {
     plain: {

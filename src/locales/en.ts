@@ -15,4 +15,19 @@ export default {
       create: 'Create Account',
     },
   },
+  settings: {
+    sections: {
+      finePrint: {
+        termsOfService: 'Terms of Service',
+        privacyPolicy: 'Privacy Policy',
+      },
+    },
+  },
+  generic: {
+    and: 'and',
+    period: '.',
+  },
+  finePrint: {
+    body: 'By creating an account, you agree to the',
+  },
 };

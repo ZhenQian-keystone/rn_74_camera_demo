@@ -15,4 +15,19 @@ export default {
       create: '创建账户',
     },
   },
+  settings: {
+    sections: {
+      finePrint: {
+        termsOfService: '条款',
+        privacyPolicy: '隐私政策',
+      },
+    },
+  },
+  generic: {
+    and: '和',
+    period: '。',
+  },
+  finePrint: {
+    body: '创建账户，即表示您同意',
+  },
 };
