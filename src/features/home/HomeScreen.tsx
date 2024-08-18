@@ -10,6 +10,7 @@ import {useColors, useTextVariants} from '../../theme/themeHooks';
 import {BottomSheetTestRef} from '../../components/BottomSheetTest';
 import BottomSheetSelector from '../../components/BottomSheetTest';
 import Buy from '../../assets/images/buy.svg';
+import ButtonPressable from '../../components/ButtonPressable';
 function HomeScreen() {
   const navigation = useNavigation();
   const {data, addData, userName, password} = useAppStorage();
@@ -96,6 +97,64 @@ function HomeScreen() {
         onPress={() => navigation.navigate('SVG' as never)}
       />
       <Buy width={100} height={100} />
+      <ButtonPressable
+        height={36}
+        borderRadius="round"
+        backgroundColor="white"
+        backgroundColorOpacityPressed={0.7}
+        flex={1}
+        // LeadingComponent={<Plus width={18} height={18} color="black" />}
+        title="666669999"
+        titleColor="primary"
+        fontSize={14}
+        onPress={() => console.log('Button Press Animation')}
+      />
+      {/* button press animation */}
+      <ButtonPressable
+        backgroundColor="primaryBackground"
+        title="Button Press Animation"
+        onPress={() => console.log('Button Press Animation')}
+      />
+      <ButtonPressable
+        borderRadius="round"
+        onPress={() => console.log('Button Press Animation')}
+        borderWidth={2}
+        borderColor="white"
+        backgroundColor="transparent"
+        backgroundColorOpacityPressed={0.7}
+        titleColorDisabled="secondaryText"
+        titleColor="white"
+        fontWeight="500"
+        title={t('secretKeyWarningScreen.goBack')}
+        marginTop="l"
+      />
+      <ButtonPressable
+        disabled={false}
+        borderRadius="round"
+        onPress={() => console.log('Button Press Animation')}
+        backgroundColor="primaryText"
+        backgroundColorOpacityPressed={0.7}
+        backgroundColorDisabled="surfaceSecondary"
+        backgroundColorDisabledOpacity={0.5}
+        titleColorDisabled="black500"
+        titleColor="primary"
+        fontWeight="500"
+        title="Button Press"
+        marginTop="m"
+      />
+
+      <ButtonPressable
+        title={t('activityScreen.showAnyway')}
+        onPress={() => console.log('Button Press Animation')}
+        borderRadius="round"
+        borderColor="red500"
+        borderWidth={1}
+        px="m"
+        titleColorDisabled="black500"
+        titleColor="red500"
+        fontWeight="500"
+        marginTop="l"
+      />
     </View>
   );
 }
