@@ -14,14 +14,14 @@ const RootNavigator = () => {
   return (
     <RootStack.Navigator screenOptions={screenNameShowOptions}>
       <RootStack.Screen
-        key="OnboardingNavigator"
-        name="OnboardingNavigator"
-        component={OnboardingNavigator}
+        name="BottomTabBarNav"
+        component={TabBarNavigator}
         options={screenNameShowOptions}
       />
       <RootStack.Screen
-        name="BottomTabBarNav"
-        component={TabBarNavigator}
+        key="OnboardingNavigator"
+        name="OnboardingNavigator"
+        component={OnboardingNavigator}
         options={screenNameShowOptions}
       />
     </RootStack.Navigator>
